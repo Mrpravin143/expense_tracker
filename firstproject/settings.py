@@ -57,10 +57,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'firstproject.urls'
 
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # ✅ safest cross-platform path
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,6 +73,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'firstproject.wsgi.application'
 ASGI_APPLICATION = 'firstproject.asgi.application'
