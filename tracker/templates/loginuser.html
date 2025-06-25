@@ -1,0 +1,54 @@
+{% extends "base.html " %}
+{% block start %}
+  <style>
+    body, html {
+      height: 100%;
+    }
+    .form-wrapper {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #eaf0f6;
+    }
+    .form-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-wrapper">
+  <div class="form-container">
+    <h3 class="text-center mb-4">🔐 Login</h3>
+    <form method="POST">
+      {% csrf_token %}
+
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show mt-3" role="alert">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+        {% endfor %}
+        
+      <div class="mb-3">
+        <label>👤 Username</label>
+        <input type="text" class="form-control" name="username" placeholder="Enter username" required>
+      </div>
+      <div class="mb-3">
+        <label>🔑 Password</label>
+        <input type="password" class="form-control" name="password" placeholder="Enter password" required>
+      </div>
+      <button type="submit" class="btn btn-success w-100">➡️ Login</button>
+    </form>
+    <p class="mt-3 text-center">Don't have an account? <a href="/register/">Register</a></p>
+  </div>
+</div>
+
+
+{% endblock %}
