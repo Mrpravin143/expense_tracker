@@ -92,27 +92,27 @@ ASGI_APPLICATION = 'firstproject.asgi.application'
 
 #Postgres Connection
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'mydb',
-#         'USER':'postgres',
-#         'PASSWORD':'Pravin6670@#$',
-#         'HOST':'localhost',
-#         'PORT':'5432'
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'expense',
+        'NAME': 'mydb',
         'USER':'postgres',
         'PASSWORD':'Pravin6670@#$',
         'HOST':'localhost',
         'PORT':'5432'
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'expense',
+#         'USER':'postgres',
+#         'PASSWORD':'Pravin6670@#$',
+#         'HOST':'localhost',
+#         'PORT':'5432'
+#     }
+# }
 
 
 
