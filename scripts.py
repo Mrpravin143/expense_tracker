@@ -32,13 +32,15 @@ import requests
 
 
 def querys():
-    all=Colleges.objects.annotate(student_count=Count('studentdata'))
+    some = Colleges.objects.values('colleges_name').annotate(total = Count('studentdata'))
+   
+    for i in some:
+        print(i)
 
-    for i in all:
-        print(i.colleges_name)
+
+
+   
  
-
-
 querys()
 
 
