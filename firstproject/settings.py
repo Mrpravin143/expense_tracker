@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-m@ho*t7hx1ogyn1b@m34z)0#!_^awezra3y*ua$=vcvzt8dad5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.onrender.com','127.0.0.1', 'localhost']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -174,12 +174,12 @@ EMAIL_HOST_PASSWORD = 'weflnvhnjinjnjnd'
 
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Whitenoise for static files
-MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
+# # Whitenoise for static files
+# MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 
-# Render environment DB setup
-if os.environ.get('RENDER') is not None:
-    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+# # Render environment DB setup
+# if os.environ.get('RENDER') is not None:
+#     DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 

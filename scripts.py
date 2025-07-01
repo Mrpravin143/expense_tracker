@@ -32,14 +32,8 @@ import requests
 
 
 def querys():
-    price=Product.objects.values('category').annotate(total=Avg('price'))
-
-
-    for i in price:
-        print(f"Name:{i['category']},Average:-{i['total']}")
-
-
-
+    pass
+ 
 
 
 querys()
