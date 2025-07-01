@@ -3,7 +3,7 @@ import django
 import itertools
 os.environ['DJANGO_SETTINGS_MODULE']='firstproject.settings'
 django.setup()
-from home.models import Product
+from home.models import Product,Colleges,StudentData
 from django.db.models import Avg,Min,Max,Sum,Count,Q
 from django.db.models.functions import ExtractYear
 from django.db.models import OuterRef,Subquery
@@ -32,7 +32,10 @@ import requests
 
 
 def querys():
-    pass
+    all=Colleges.objects.annotate(student_count=Count('studentdata'))
+
+    for i in all:
+        print(i.colleges_name)
  
 
 
