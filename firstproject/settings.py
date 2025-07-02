@@ -183,3 +183,13 @@ EMAIL_HOST_PASSWORD = 'weflnvhnjinjnjnd'
 # if os.environ.get('RENDER') is not None:
 #     DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
+
+# CACHE IMPLEMET
+
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+        "LOCATION": "unique-snowflake",
+    }
+}
+
