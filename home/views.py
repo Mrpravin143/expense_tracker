@@ -10,7 +10,7 @@ from django.contrib.postgres.search import SearchVector,SearchQuery,SearchRank,T
 from django.core.mail import send_mail
 import random
 from django.core.cache import cache
-from ratelimit.decorators import ratelimit
+
 
 # Create your views here.
 
@@ -77,26 +77,6 @@ def student_databse(request):
 
     # Return response
     return HttpResponse(f"{status}</br>{message}")
-
-
-
-# Implement Rate Limiting 
-@ratelimit(key='ip', rate='3/m', block=True)
-def contact_form_view(request):
-    if request.method == "POST":
-        name = request.POST.get("name")
-        message = request.POST.get("message")
-        # Here you would normally save to DB or send email
-        return HttpResponse(f"Thank you, {name}. Your message has been received.")
-
-        
-    return HttpResponse("""
-    <form method="post">
-        Name: <input type="text" name="name"><br>
-        Message: <textarea name="message"></textarea><br>
-        <input type="submit" value="Send">
-    </form>
-    """)
 
 
 

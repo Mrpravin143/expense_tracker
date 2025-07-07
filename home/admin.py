@@ -1,5 +1,5 @@
 from django.contrib import admin
-from home.models import Author,Books,UserProfile
+from home.models import Author,Books,UserProfile,News
 
 # Register your models here.
 class BooksInline(admin.TabularInline):
@@ -25,6 +25,11 @@ class BooksAdmin(admin.ModelAdmin):
 class UserProfile(admin.ModelAdmin):
     list_display = ("user","phone_number","otp",)
 
+
+
+@admin.register(News)
+class UserProfile(admin.ModelAdmin):
+    list_display = ("title","content","created_at",)
     
     
 
