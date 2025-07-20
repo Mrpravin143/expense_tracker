@@ -24,10 +24,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-m@ho*t7hx1ogyn1b@m34z)0#!_^awezra3y*ua$=vcvzt8dad5'
 
+
+SECRET_KEY = os.environ.get("SECRET_KEY")
+
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'expense-tracker-335p.onrender.com']
+ALLOWED_HOSTS = ['.onrender.com']
 
 
 # Application definition
@@ -151,8 +155,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = '/static/'
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
@@ -173,7 +175,11 @@ EMAIL_HOST_PASSWORD = 'weflnvhnjinjnjnd'
 
 # hosing releted
 
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
