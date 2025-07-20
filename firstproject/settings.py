@@ -93,27 +93,27 @@ ASGI_APPLICATION = 'firstproject.asgi.application'
 
 #Postgres Connection
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mydb',
-        'USER':'postgres',
-        'PASSWORD':'Pravin6670@#$',
-        'HOST':'localhost',
-        'PORT':'5432'
-    }
-}
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'expense',
+#         'NAME': 'mydb',
 #         'USER':'postgres',
 #         'PASSWORD':'Pravin6670@#$',
 #         'HOST':'localhost',
 #         'PORT':'5432'
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'expense',
+        'USER':'postgres',
+        'PASSWORD':'Pravin6670@#$',
+        'HOST':'localhost',
+        'PORT':'5432'
+    }
+}
 
 
 
@@ -175,14 +175,6 @@ EMAIL_HOST_PASSWORD = 'weflnvhnjinjnjnd'
 
 
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# # Whitenoise for static files
-# MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
-
-# # Render environment DB setup
-# if os.environ.get('RENDER') is not None:
-#     DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 
 # CACHE IMPLEMET

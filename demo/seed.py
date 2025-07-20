@@ -7,11 +7,13 @@ fake = Faker()
 
 
 def DummyDate(Records):
+    ids = Parents.objects.all()
     for data in range(Records):
         name = fake.name()
         mobile = random.randint(0000000000,9999999999)
         gender = random.choice(['Male','Female'])
         age = random.randint(18,29)
+        parent = ids.id()
 
         Parents.objects.create(
             name=name,
