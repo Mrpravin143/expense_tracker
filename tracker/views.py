@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import Transaction
+from tracker.models import Transaction
 from django.db.models import Sum
 from django.utils import timezone
 from django.contrib.auth.models import User
