@@ -4,16 +4,14 @@ import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# ✅ Use SECRET_KEY from environment variables
-SECRET_KEY = os.environ.get("SECRET_KEY", 'your-default-dev-key')  # fallback for local/dev
+SECRET_KEY = 'django-insecure-9b#_&+e3^s7qf1r@v85zv2_!d+vke&w5lx+w@1p3a=z+%=kzho'
 
-# ✅ Never use DEBUG = True in production
-DEBUG = os.environ.get("DEBUG", "False") == "True"
 
-# ✅ Render host setup
-ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
+SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-9b#_&+e3^s7qf1r@v85zv2_!d+vke&w5lx+w@1p3a=z+%=kzho")
+DEBUG = False
 
-# Application definition
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -59,14 +57,24 @@ TEMPLATES = [
 WSGI_APPLICATION = 'firstproject.wsgi.application'
 ASGI_APPLICATION = 'firstproject.asgi.application'
 
-# ✅ ✅ DATABASE SETUP FOR RENDER
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'expense',
+#         'USER': 'postgres',
+#         'PASSWORD': 'Pravin6670@#$',
+#         'HOST': 'localhost',  
+#         'PORT': '5432',
+#     }
+# }
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get("DATABASE_URL")
-    )
+    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
 }
 
-# Password validation
+
+
+
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -79,20 +87,18 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# ✅ STATIC & MEDIA FILES for Render
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# ✅ WhiteNoise for serving static files
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 LOGIN_REDIRECT_URL = '/myreports/'
 
-# ✅ Gmail SMTP (You may want to use environment vars for password)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -100,7 +106,6 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'pravinsaindane2005@gmail.com'
 EMAIL_HOST_PASSWORD = 'weflnvhnjinjnjnd'
 
-# Cache
 CACHES = {
     "default": {
         "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
